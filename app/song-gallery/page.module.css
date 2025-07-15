@@ -1,0 +1,277 @@
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #221810;
+  overflow: hidden;
+  color: white;
+  user-select: none;
+}
+
+.headerRow {
+  width: 960px;               /* same as .grid */
+  margin: 0 auto 3rem auto;   /* center horizontally, margin bottom */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.heading {
+  margin: 0;                 
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.searchContainer {
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.searchInput {
+  width: 250px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  color: white;
+  outline-offset: 2px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  caret-color: white;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.searchInput:focus {
+  border-color: #1db954;
+  box-shadow: 0 0 4px #1db954;
+}
+
+/* Existing grid styling */
+.grid {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 960px;
+}
+
+/* Cards and modal styles unchanged */
+.card {
+  position: relative;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+  background-color: #222;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+.cardImageWrapper {
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.cardImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 20;
+}
+
+.modalContent {
+  background-color: white;
+  border-radius: 1rem;
+  max-width: 420px;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #555;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: #000;
+}
+
+.songTitle,
+.songRelease,
+.songDescription,
+.songArtist {
+  color: #444;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.spotifyLink {
+  color: #1DB954; /* Spotify green or use #3b82f6 for Tailwind blue */
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  display: inline-block;
+  transition: color 0.2s ease-in-out;
+}
+
+.spotifyLink:hover {
+  color: #169c45; /* Slightly darker green on hover */
+}
+
+.lightLeaks {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.lightLeaks div {
+  position: absolute;
+  filter: blur(100px);
+  opacity: 1;
+  border-radius: 50% / 100%;
+  background: linear-gradient(
+    45deg,
+    rgb(255, 98, 0) 0%,
+    rgb(255, 70, 70) 50%,
+    rgb(255, 0, 183) 100%
+  );
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.lightLeaks div:nth-child(1) {
+  width: 320px;
+  height: 80px;
+  top: 15%;
+  left: -30%;
+  animation-name: moveLeak1;
+  animation-duration: 4s;
+}
+
+.lightLeaks div:nth-child(2) {
+  width: 240px;
+  height: 70px;
+  top: 60%;
+  left: 90%;
+  background: linear-gradient(
+    135deg,
+    rgb(255, 98, 0) 0%,
+    rgb(255, 70, 70) 50%,
+    rgb(255, 0, 183) 100%
+  );
+  animation-name: moveLeak2;
+  animation-duration: 4s;
+}
+
+.lightLeaks div:nth-child(3) {
+  width: 100px;
+  height: 280px;
+  top: 70%;
+  left: -20%;
+  background: linear-gradient(
+    90deg,
+    rgb(255, 98, 0) 0%,
+    rgb(255, 70, 70) 50%,
+    rgb(255, 0, 183) 100%
+  );
+  animation-name: moveLeak3;
+  animation-duration: 4s;
+}
+
+.lightLeaks div:nth-child(4) {
+  width: 200px;
+  height: 90px;
+  top: 25%;
+  left: 110%;
+  background: linear-gradient(
+    60deg,
+    rgb(255, 98, 0) 0%,
+    rgb(255, 70, 70) 50%,
+    rgb(255, 0, 183) 100%
+  );
+  animation-name: moveLeak4;
+  animation-duration: 4s;
+}
+
+@keyframes moveLeak1 {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(120px) translateY(40px) rotate(15deg);
+  }
+}
+
+@keyframes moveLeak2 {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-130px) translateY(-70px) rotate(-12deg);
+  }
+}
+
+@keyframes moveLeak3 {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(90px) translateY(-120px) rotate(20deg);
+  }
+}
+
+@keyframes moveLeak4 {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-140px) translateY(60px) rotate(-18deg);
+  }
+}

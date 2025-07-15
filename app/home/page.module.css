@@ -1,0 +1,36 @@
+.main {
+  position: relative; /* establishes stacking context */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 0; /* add this to create stacking context */
+}
+
+.bgOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('/images/home2.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.75;
+  z-index: -1; /* keep behind */
+  pointer-events: none; /* allow clicks to go through */
+}
+
+.title {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.888);
+  font-size: 8vw;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1;
+  z-index: 1; /* optionally explicitly above bgOverlay */
+  position: relative; /* make sure it is above */
+}

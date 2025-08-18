@@ -7,22 +7,30 @@ export default function Navbar() {
   return (
     <nav className={styles.navContainer}>
       <Link href="/song-gallery">
-        <div
-          className={styles.navButton}
-          role="button"
-        >
-          <span>Song Gallery</span>
+        <div className={styles.navButton} role="button">
+          <span>songs</span>
         </div>
       </Link>
 
-      <Link href="/about">
-        <div
-          className={styles.navButton}
-          role="button"
-        >
-          <span>About</span>
+      <a
+        href="https://www.beatstars.com/1jahvi"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className={styles.navButton} role="button">
+          <span>shop</span>
         </div>
-      </Link>
+      </a>
+
+      <a
+        href="https://www.youtube.com/@1jahvi"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className={styles.navButton} role="button">
+          <span>youtube</span>
+        </div>
+      </a>
     </nav>
   );
 }
